@@ -13,7 +13,7 @@ B Run "npm install" to install node modules.<br>
 
 2 Build React<br>
 2.1 Debug Mode<br>
-A Run "npm run pack" to build react in debug mode in the command window.<br>
+Run "npm run pack" to build react in debug mode in the command window.<br>
 2.2 Production Mode<br>
 Run "npm run build" to build react in production mode in the command window.<br>
 
