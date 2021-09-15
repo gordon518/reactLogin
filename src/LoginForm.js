@@ -10,12 +10,12 @@ export default class LoginForm extends Component {
 		this.props.setFetch(true);
         post('/login', postData).then((response)=> {
 			this.props.setFetch(false);
-            if(response.retCode==0) {
+            if(!response.err) {
                 this.props.saveUserInfo(postData);
 			}
             else {
                 console.log(response);
-				notification['error']({message: response.retMsg});
+				notification['error']({message: response.err});
 			}
 		}).catch((error)=> {
 			this.props.setFetch(false);
@@ -28,17 +28,17 @@ export default class LoginForm extends Component {
         return (
             <Form onFinish={this.handleLogin} className={style.formStyle}>
 
-                <Form.Item name='userName' rules={[{required: true, message: '请输入用户名!'}]} >
+                <Form.Item name='userName' rules={[{required: true, message: 'Pls input username!'}]} >
 					<Input prefix={<UserOutlined style={{fontSize: 13}}/>} placeholder="Username" autoFocus />
                 </Form.Item>
 
-                <Form.Item name='password' rules={[{required: true, message: '请输入密码!'}]}>
+                <Form.Item name='password' rules={[{required: true, message: 'Pls input password!'}]}>
 					<Input prefix={<LockOutlined style={{fontSize: 13}}/>} type="password" placeholder="Password"/>
                 </Form.Item>
 
                 <Form.Item>
                     <Button className={style.loginButton} type="primary" htmlType="submit">
-                        登录
+                        Login
                     </Button>
                 </Form.Item>
             </Form>

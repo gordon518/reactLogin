@@ -11,10 +11,10 @@ export default class Login extends Component {
     const {saveUserInfo, setFetch} = this.props;
     return (
             <Tabs defaultActiveKey="1" tabBarStyle={{textAlign: 'center'}} className={style.container}>
-                <TabPane tab="登录" key="1">
+                <TabPane tab="Login" key="1">
                     <LoginForm saveUserInfo={saveUserInfo} setFetch={setFetch}/>
                 </TabPane>
-                <TabPane tab="注册" key="2">
+                <TabPane tab="Register" key="2">
                     <RegisterForm/>
                 </TabPane>
             </Tabs>

@@ -6,12 +6,12 @@ import {createStore} from 'redux'
 import { Provider } from 'react-redux'
 import userReducer from './redux/reducer'
 
-//生成一个store对象
-//内部会调用一次reducer函数得到初始state
+//create store object
+//call reducer function to initiate state
 const store = createStore(userReducer)
 console.log(store);
 
-//传入store
+//pass in store
 ReactDOM.render(
     <Provider store={store}>
         <App/>

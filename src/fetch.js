@@ -1,7 +1,7 @@
 import axios from 'axios'
 //import Qs from 'qs'
-//Axios传参的两种方式，表单数据和json字符串: https://blog.csdn.net/u013253924/article/details/81772820
-//Axios使用说明：http://axios-js.com/zh-cn/docs/index.html
+//Axios has 2 methods pass parameter，Form data and json: https://blog.csdn.net/u013253924/article/details/81772820
+//Axios manual：http://axios-js.com/zh-cn/docs/index.html
 
 let config = {
     baseURL: '/api',
@@ -24,7 +24,7 @@ let config = {
 };
 
 axios.interceptors.response.use(function(res){
-    //相应拦截器
+    //interceptor
     return res.data;
 });
 

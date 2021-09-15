@@ -28,11 +28,11 @@ app.use("/",express.static(__dirname+"/dist"));
 
 //mongoose.connect("mongodb://localhost/db", (err, db) => {
 //    if(err) {
-//        console.log("MongoDb连接失败");
+//        console.log("MongoDb coonnect error");
 //        process.exit(1);
 //    }
 //    else {
-//        console.log("MongoDb连接成功")
+//        console.log("MongoDb connect succeeded")
 //    }
 //})
 

@@ -35,14 +35,14 @@ class App extends Component {
 
     componentDidMount() {
 		//this.props.setFetch(true);
-        get('/useInfo').then((response)=> {
+        get('/userInfo').then((response)=> {
 			//this.props.setFetch(false);
-            if(response.retCode==0) {
+            if(!response.err) {
                 this.props.saveUserInfo(response.userInfo);
 			}
             else {
                 console.log(response);
-				notification['error']({message: response.retMsg});
+				notification['error']({message: response.err});
 			}
 		}).catch((error)=> {
 			//this.props.setFetch(false);
