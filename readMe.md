@@ -18,7 +18,7 @@ Run "npm run pack" to build react in debug mode in the command window.<br>
 Run "npm run build" to build react in production mode in the command window.<br>
 
 3 Debug react code, there are 2 ways to debug, will describe in 3.1 and 3.2<br>
-3.1 debug react code without webpack-dev-server
+3.1 debug react code without webpack-dev-server<br>
 A Run "npm run pack" to build react in debug mode in the command window.<br>
 B Run "node app.js" in the command window.<br>
 C Open VSCode-v1.55.0<br>
@@ -29,7 +29,7 @@ G Select "React:8888" on top bar, then click the "Start Debugging" icon to open 
 H Operate in chrome, make the web page to reach the breakpoint. Then debug in VsCode.<br>
 I If changing react code, it need to run "npm run pack" again to build react in debug mode.<br>
 
-3.2 debug react code with webpack-dev-server
+3.2 debug react code with webpack-dev-server<br>
 A Run "node app.js" in the command window to start node API server.<br>
 A Run "npm run start" in another command window to start webpack-dev-server.<br>
 C Open VSCode-v1.55.0<br>
