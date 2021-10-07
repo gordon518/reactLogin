@@ -14,10 +14,18 @@
             "type": "pwa-node"
         },
         {
-            "name": "Debug React, TS, Webpack app in Chrome",
+            "name": "React:8888",
             "type": "chrome",
             "request": "launch",
             "url": "http://localhost:8888/",
+            "webRoot": "${workspaceFolder}",
+            "sourceMaps": true
+        },
+        {
+            "name": "React:3000",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:3000/",
             "webRoot": "${workspaceFolder}",
             "sourceMaps": true
         }

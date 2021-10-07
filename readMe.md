@@ -17,16 +17,27 @@ Run "npm run pack" to build react in debug mode in the command window.<br>
 2.2 Production Mode<br>
 Run "npm run build" to build react in production mode in the command window.<br>
 
-3 Debug react code<br>
+3 Debug react code, there are 2 ways to debug, will describe in 3.1 and 3.2<br>
+3.1 debug react code without webpack-dev-server
 A Run "npm run pack" to build react in debug mode in the command window.<br>
 B Run "node app.js" in the command window.<br>
 C Open VSCode-v1.55.0<br>
-D Install the extension of "Debugger for Chrome".<br>
+D Install the extension of "Debugger for Chrome" for VSCode.<br>
 E Set breakpoint in react code.<br>
 F Click "Run and Debug" in the left tool bar.<br>
-G Select "Debug React" on top bar, then click the "Start Debugging" icon to open chrome.<br>
+G Select "React:8888" on top bar, then click the "Start Debugging" icon to open chrome.<br>
 H Operate in chrome, make the web page to reach the breakpoint. Then debug in VsCode.<br>
 I If changing react code, it need to run "npm run pack" again to build react in debug mode.<br>
+
+3.2 debug react code with webpack-dev-server
+A Run "node app.js" in the command window to start node API server.<br>
+A Run "npm run start" in another command window to start webpack-dev-server.<br>
+C Open VSCode-v1.55.0<br>
+D Install the extension of "Debugger for Chrome" for VSCode.<br>
+E Set breakpoint in react code.<br>
+F Click "Run and Debug" in the left tool bar.<br>
+G Select "React:3000" on top bar, then click the "Start Debugging" icon to open chrome.<br>
+H Operate in chrome, make the web page to reach the breakpoint. Then debug in VsCode.<br>
 
 4 Debug node code<br>
 A Open VSCode-v1.55.0<br>
