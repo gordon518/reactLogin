@@ -31,7 +31,7 @@ I If changing react code, it need to run "npm run pack" again to build react in 
 
 3.2 debug react code with webpack-dev-server<br>
 A Run "node app.js" in the command window to start node API server.<br>
-A Run "npm run start" in another command window to start webpack-dev-server.<br>
+B Run "npm run start" in another command window to start webpack-dev-server.<br>
 C Open VSCode-v1.55.0<br>
 D Install the extension of "Debugger for Chrome" for VSCode.<br>
 E Set breakpoint in react code.<br>
@@ -46,10 +46,10 @@ C Open app.js in VsCode<br>
 D Click "Run and Debug" in the left tool bar.<br>
 E Select "Node current file" on top bar, then click the "Start Debugging" icon to start node.<br>
 F Open a web broser, go to "localhost:8888"<br>
-G Operate in web broser, make the web page to reach the breakpoint. Then debug in VsCode.<br>
+G Operate in web browser, make the web page to reach the breakpoint. Then debug in VsCode.<br>
 
 5 Run in production mode<br>
 A Run "npm run build" to build react in production mode in the command window.<br>
 B Run "node app.js" to start node.<br>
-C Open a web broser, go to "localhost:8888"<br>
+C Open a web browser, go to "localhost:8888"<br>
 D Input 'admin' as username, 'admin' as password to login.<br>
