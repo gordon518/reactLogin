@@ -3,6 +3,7 @@
 module.exports = {
 	get: (req, res) => {
 		const session = req.session;
+		//console.log(session.userInfo);
 		if(session.userInfo) {
 			res.json({
 				err: null,
