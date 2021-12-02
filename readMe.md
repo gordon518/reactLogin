@@ -53,4 +53,4 @@ G Operate in web browser, make the web page to reach the breakpoint. Then debug 
 A Run "npm run build" to build react in production mode in the command window.<br>
 B Run "node app.js" to start node.<br>
 C Open a web browser, go to "localhost:8888"<br>
-D Input 'admin' as username, 'admin' as password to login.<br>
+D Input 'aa' as username, '11' as password to login.<br>
