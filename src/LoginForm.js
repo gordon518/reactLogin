@@ -9,13 +9,14 @@ export default class LoginForm extends Component {
         var postData={'userName':values.userName, 'password':values.password};
 		this.props.setFetch(true);
         post('/login', postData).then((response)=> {
+            var ret=JSON.parse(response);
 			this.props.setFetch(false);
-            if(!response.err) {
+            if(!ret.err) {
                 this.props.saveUserInfo(postData);
 			}
             else {
-                console.log(response);
-				notification['error']({message: response.err});
+                console.log(ret);
+				notification['error']({message: ret.err});
 			}
 		}).catch((error)=> {
 			this.props.setFetch(false);

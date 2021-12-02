@@ -37,12 +37,13 @@ class App extends Component {
 		//this.props.setFetch(true);
         get('/userInfo').then((response)=> {
 			//this.props.setFetch(false);
-            if(!response.err) {
-                this.props.saveUserInfo(response.userInfo);
+            var ret=JSON.parse(response);
+            if(!ret.err) {
+                this.props.saveUserInfo(ret.userInfo);
 			}
             else {
-                console.log(response);
-				notification['error']({message: response.err});
+                console.log(ret.err);
+				notification['error']({message: ret.err});
 			}
 		}).catch((error)=> {
 			//this.props.setFetch(false);
