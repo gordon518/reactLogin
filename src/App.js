@@ -10,7 +10,7 @@ import {get, post} from './fetch';
 
 const App = (props) => {
 
-	const {userInfo, saveUserInfo, isFetching, setFetch} = props;
+    const {userInfo, saveUserInfo, isFetching, setFetch} = props;
 
     // Similar to componentDidMount and componentDidUpdate:
     useEffect(() => {
