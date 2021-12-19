@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useEffect } from 'react'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import {actions} from './redux/actions'
@@ -8,11 +8,30 @@ import Logined from './Logined'
 import {Loading} from './Loading'
 import {get, post} from './fetch';
 
-class App extends Component {
+const App = (props) => {
 
-	render() {
-		const {userInfo, saveUserInfo, isFetching, setFetch} = this.props;
-		return (
+	const {userInfo, saveUserInfo, isFetching, setFetch} = props;
+
+    // Similar to componentDidMount and componentDidUpdate:
+    useEffect(() => {
+        get('/userInfo').then((response)=> {
+			//props.setFetch(false);
+            var ret=JSON.parse(response);
+            if(!ret.err) {
+                props.saveUserInfo(ret.userInfo);
+			}
+            else {
+                console.log(ret.err);
+				notification['error']({message: ret.err});
+			}
+		}).catch((error)=> {
+			//props.setFetch(false);
+			console.log(error);
+			notification['error']({message: error});
+		});
+    }, [saveUserInfo]);
+
+    return (
             <div id="divFront">
                 <div className={style.container}>
                     <div className={style.contentContainer}>
@@ -30,41 +49,21 @@ class App extends Component {
                 </div>
                 {isFetching && <Loading/>}
             </div>
-		);
-	}
-
-    componentDidMount() {
-		//this.props.setFetch(true);
-        get('/userInfo').then((response)=> {
-			//this.props.setFetch(false);
-            var ret=JSON.parse(response);
-            if(!ret.err) {
-                this.props.saveUserInfo(ret.userInfo);
-			}
-            else {
-                console.log(ret.err);
-				notification['error']({message: ret.err});
-			}
-		}).catch((error)=> {
-			//this.props.setFetch(false);
-			console.log(error);
-			notification['error']({message: error});
-		});
-    }
-
+	);
 }
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
     return{
         saveUserInfo:bindActionCreators(actions.saveUserInfo,dispatch),
 		setFetch:bindActionCreators(actions.setFetch,dispatch),
     }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
     return{
         userInfo: state.userInfo,
         isFetching: state.isFetching,
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -1,15 +1,15 @@
-import React, { Component } from 'react'
+import React from 'react'
 import {Button, notification} from 'antd'
 import style from './css/Logined.css'
 import {get, post} from './fetch';
 
-export default class Logined extends Component {
+const Logined = (props) => {
 
-    handleLogout = (e) => {
+    const handleLogout = (e) => {
         var postData={};
         post('/logout', postData).then((response)=> {
             if(!response.err) {
-                this.props.saveUserInfo(postData);
+                props.saveUserInfo(postData);
 			}
             else {
                 console.log(response);
@@ -21,16 +21,17 @@ export default class Logined extends Component {
 		});
     }
 
-    render() {
-        const {userInfo} = this.props;
-        return(
-            <div className={style.container}>
-                <img src={require('./css/timg.jpeg')}/>
-                <p>Welcome: {userInfo.userName}</p>
-                <p className={style.centerP}>Welcome my blog~</p>
-                <Button type="primary">My Space</Button>
-                <Button onClick={this.handleLogout} >Logout</Button>
-            </div>
-        );
-    }
-}
+    const {userInfo} = props;
+    return(
+        <div className={style.container}>
+            <img src={require('./css/timg.jpeg')}/>
+            <p>Welcome: {userInfo.userName}</p>
+            <p className={style.centerP}>Welcome my blog~</p>
+            <Button type="primary">My Space</Button>
+            <Button onClick={handleLogout} >Logout</Button>
+        </div>
+    );
+
+};
+
+export default Logined;
