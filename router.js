@@ -13,8 +13,8 @@ router.all("*",  (req, res) => {  // runs on ALL requests
     var pathname = url.parse(req.url).pathname;
     console.log("router() About to the URL Path of " + pathname);
     try {
-		//dynamically load the js file base on the url path
-		var handler = require("./api/" + pathname);
+        //dynamically load the js file base on the url path
+        var handler = require("./api/" + pathname);
         //make sure we got a correct instantiation of the module
         //route to the right method in the module based on the HTTP action
         if(req.method.toLowerCase() == 'get' && typeof handler["get"] == 'function') {

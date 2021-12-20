@@ -13,18 +13,18 @@ module.exports = {
             // vendor's CSS
             {
                 test: /\.css$/,
-				include:/node_modules/,
+                include:/node_modules/,
                 use: [
-					'style-loader',
-					{
-						loader:'css-loader',
+                    'style-loader',
+                    {
+                        loader:'css-loader',
                         options:{
                             modules:false
                         }
-					}
-				]
+                    }
+                ]
             },
-			//our code's CSS
+            //our code's CSS
             {
                 test:/\.css$/,
                 exclude:/node_modules/,
@@ -38,7 +38,7 @@ module.exports = {
                     }
                 ]
             },
-			// JavaScript,JSX,TS
+            // JavaScript,JSX,TS
             {
                 test: /\.(tsx?|js)$/,
                 loader: "babel-loader",
@@ -53,7 +53,7 @@ module.exports = {
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
                 type: 'asset/resource',
-			},
+            },
         ]
     },
     plugins: [
