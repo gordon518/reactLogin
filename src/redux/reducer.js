@@ -1,23 +1,23 @@
 import * as user from './action-type'
 
 let defaultState = {
-  isFetching: false,  //是否在做远程获取操作
-  addressList: [],   // 地址列表
-  addressName: '',   // 选中的地址
-  temMessage: '',   //临时姓名
-  hasAddressList: [], // 已有的地址
+  isFetching: false,  //If in the process of fetch
+  addressList: [],   // addr list
+  addressName: '',   // addr choosed
+  temMessage: '',   // temporary message
+  hasAddressList: [], // addr list already has 
   operate: 'edit',
   userInfo: {},
   geohash: []
 }
 
-// 用户消息
+// user message
 export default (state = defaultState, action = {}) => {
   switch (action.type) {
     case user.SET_FETCH:
       return {
         ...state, 
-		isFetching: action.isFetching
+        isFetching: action.isFetching
       };
     case user.SAVE_USERINFO:
       return {

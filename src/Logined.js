@@ -10,15 +10,15 @@ const Logined = (props) => {
         post('/logout', postData).then((response)=> {
             if(!response.err) {
                 props.saveUserInfo(postData);
-			}
+            }
             else {
                 console.log(response);
-				notification['error']({message: response.err});
-			}
-		}).catch((error)=> {
-			console.log(error);
-			notification['error']({message: error});
-		});
+                notification['error']({message: response.err});
+            }
+        }).catch((error)=> {
+            console.log(error);
+            notification['error']({message: error});
+        });
     }
 
     const {userInfo} = props;

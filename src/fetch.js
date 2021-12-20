@@ -7,7 +7,7 @@ let config = {
     baseURL: '/api',
     transformRequest: [
         function (data) {
-			let ret = JSON.stringify(data)
+            let ret = JSON.stringify(data)
             return ret
         }
     ],

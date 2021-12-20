@@ -7,22 +7,22 @@ import style from './css/Login.css'
 const LoginForm = (props) => {
     const handleLogin = (values) => {
         var postData={'userName':values.userName, 'password':values.password};
-		props.setFetch(true);
+        props.setFetch(true);
         post('/login', postData).then((response)=> {
             var ret=JSON.parse(response);
-			props.setFetch(false);
+            props.setFetch(false);
             if(!ret.err) {
                 props.saveUserInfo(postData);
-			}
+            }
             else {
                 console.log(ret);
-				notification['error']({message: ret.err});
-			}
-		}).catch((error)=> {
-			props.setFetch(false);
-			console.log(error);
-			notification['error']({message: error});
-		});
+                notification['error']({message: ret.err});
+            }
+        }).catch((error)=> {
+            props.setFetch(false);
+            console.log(error);
+            notification['error']({message: error});
+        });
     };
 
     return (
