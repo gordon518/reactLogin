@@ -3,7 +3,7 @@ import {Button, notification} from 'antd'
 import style from './css/Logined.css'
 import {get, post} from './fetch';
 
-const Logined = (props) => {
+export default (props) => {
 
     const handleLogout = (e) => {
         var postData={};
@@ -33,5 +33,3 @@ const Logined = (props) => {
     );
 
 };
-
-export default Logined;

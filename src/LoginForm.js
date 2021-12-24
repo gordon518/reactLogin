@@ -4,7 +4,7 @@ import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import {get, post} from './fetch';
 import style from './css/Login.css'
 
-const LoginForm = (props) => {
+export default (props) => {
     const handleLogin = (values) => {
         var postData={'userName':values.userName, 'password':values.password};
         props.setFetch(true);
@@ -44,5 +44,3 @@ const LoginForm = (props) => {
         </Form>
     );
 };
-
-export default LoginForm;

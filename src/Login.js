@@ -6,7 +6,7 @@ import RegisterForm from "./RegisterForm";
 
 const { TabPane } = Tabs;
 
-const Login = (props) => {
+export default (props) => {
   const {saveUserInfo, setFetch} = props;
   return (
     <Tabs defaultActiveKey="1" tabBarStyle={{textAlign: 'center'}} className={style.container}>
@@ -19,6 +19,4 @@ const Login = (props) => {
     </Tabs>
   );
 };
-
-export default Login;
  

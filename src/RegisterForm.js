@@ -3,7 +3,7 @@ import {Input,Form, Button} from 'antd'
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import style from './css/Login.css'
 
-const RegisterForm = (props) => {
+export default (props) => {
     return(
         <Form className={style.formStyle}>
 
@@ -29,5 +29,3 @@ const RegisterForm = (props) => {
         </Form>
     );
 };
-
-export default RegisterForm;
