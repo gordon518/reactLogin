@@ -5,6 +5,7 @@ For example: for the URL call of "/api/login", system will dispatch this call to
 By this convension, we can get rid of config of every URL calls.
 <br>
 This project is the seed project for node express(back end)/react(front end) framework.
+The old project at https://github.com/gordon518/reactLogin_old use old style react, react class as react component. This project use function as react component, and react hooks.
 
 # Run Guide
 1.Install node modules<br>
