@@ -1,7 +1,6 @@
 const express = require("express");
-//const adminCtrl = require("../controller/admin/index");
+const url = require("url");
 const router = express.Router();
-var url = require("url");
 
 /*
 Convension over config, it's stupid to config every URL calls in router.
