@@ -14,7 +14,6 @@ app.use(session({
     saveUninitialized: true
 }));
 
-
 app.use("/api", router);
 
 app.use("/",express.static(__dirname+"/dist"));
@@ -36,6 +35,7 @@ app.use("/",express.static(__dirname+"/dist"));
 //    }
 //})
 
-app.listen("8888", () => {
+var server = app.listen("8888", () => {
     console.log("server created at port:8888!");
-})
+});
+module.exports = server;
