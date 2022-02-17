@@ -1,31 +1,25 @@
 ﻿const db=require('../sqlite/liteDb');
+const { generateToken } = require("../authorization");
 
 module.exports = {
 	post: (req, res) => {
 		const {userName, password} = req.body;
-		const session = req.session;
-		checkPass(userName, password, function(ret) {
-			if(!ret.err) {
-				if(session) {
-					if(session.userInfo) {
-						res.json({err: "You are already logged in!"});
-					}
-					else {
-						session.userInfo = {
-							userName,
-							password
-						}
+		checkPass(userName, password, function(ret1) {
+			if(!ret1.err) {
+				const token = generateToken({ userName: userName });
+				console.log(token);
+				saveToken(userName,token,function(ret2){
+					if(!ret2.err) {
 						res.json({
 							err: null,
-							retInfo: {}
-						});
+							token: token
+						});				
+					} else {
+						res.json(ret2);
 					}
-				}
-				else {
-					res.json({err: "No session" });
-				}
+				});
 			} else {
-				res.json(ret);
+				res.json(ret1);
 			}
 		});
 	}
@@ -45,5 +39,10 @@ function checkPass(userName, password, fn) {
 			fn(ret);
 		}
 	});
+}
 
+function saveToken(userName, token, fn) {
+	db.exec("update user set token=? where username=?",[token, userName], function(ret) {
+		fn(ret);
+	});
 }

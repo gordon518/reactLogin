@@ -1,8 +1,9 @@
-import React, {Component} from 'react'
-import {Input, Form, Button, notification} from 'antd'
+import React, {Component} from 'react';
+import {Input, Form, Button, notification} from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import cookie from 'js-cookie';
 import {get, post} from './fetch';
-import style from './css/Login.css'
+import style from './css/Login.css';
 
 export default (props) => {
     const handleLogin = (values) => {
@@ -13,6 +14,7 @@ export default (props) => {
             props.setFetch(false);
             if(!ret.err) {
                 props.saveUserInfo(postData);
+                cookie.set('token',ret.token);
             }
             else {
                 console.log(ret);

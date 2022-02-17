@@ -1,5 +1,6 @@
 import React from 'react'
 import {Button, notification} from 'antd'
+import cookie from 'js-cookie';
 import style from './css/Logined.css'
 import {get, post} from './fetch';
 
@@ -7,8 +8,11 @@ export default (props) => {
 
     const handleLogout = (e) => {
         var postData={};
-        post('/logout', postData).then((response)=> {
+        let token=cookie.get('token');
+        console.log(token);
+        post('/logout', postData, token).then((response)=> {
             if(!response.err) {
+                cookie.set('token', "");
                 props.saveUserInfo(postData);
             }
             else {
